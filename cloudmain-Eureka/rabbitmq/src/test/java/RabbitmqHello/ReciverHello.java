@@ -11,7 +11,7 @@ public class ReciverHello {
     private static final String QUEUE_NAME = "queue_demo";
     private static final String IP_ADDRESS = "localhost";
     private static final int PORT = 5672;
-
+    //RabbitMq不支持队列层面的广播消费，需要二次开发
     public static void main(String[] args) throws Exception{
         Address[] addresses=new Address[]{new Address(IP_ADDRESS,PORT)};
         ConnectionFactory factory=new ConnectionFactory();
