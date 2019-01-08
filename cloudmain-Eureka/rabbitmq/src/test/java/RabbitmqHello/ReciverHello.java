@@ -37,6 +37,7 @@ public class ReciverHello {
                 channel.basicAck(envelope.getDeliveryTag(),false);
             }
         };
+        //basic.Consume 消费者订阅并接受消息,如果确认消息，那么消息就不消费，一直存在
         String s = channel.basicConsume(QUEUE_NAME, consumer);
         //等待回调函数执行完毕之后，关闭字段
         TimeUnit.SECONDS.sleep(5);
