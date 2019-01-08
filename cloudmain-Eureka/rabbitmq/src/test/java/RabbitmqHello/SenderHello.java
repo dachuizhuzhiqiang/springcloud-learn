@@ -32,7 +32,11 @@ public class SenderHello {
         channel.queueBind(QUEUE_NAME,EXCHANG_NAME,EXCHANG_NAME);
         //发送一条持久化的消息
         String message="Hello World";
-        channel.basicPublish(EXCHANG_NAME,EXCHANG_NAME, MessageProperties.PERSISTENT_TEXT_PLAIN,message.getBytes());
+        for (int i = 0; i < 10; i++) {
+            message="Hello World "+i;
+            channel.basicPublish(EXCHANG_NAME,EXCHANG_NAME, MessageProperties.PERSISTENT_TEXT_PLAIN,message.getBytes());
+
+        }
         //关闭资源
         channel.close();;
         connection.close();
